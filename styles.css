@@ -138,6 +138,10 @@ class.contact label {
     margin-bottom: 5px;
 }
 
+class.contact label[for="name"],
+class.contact label[for="email"] {
+    clear: both; /* Force le passage à la ligne après les champs "Nom" et "Email" */
+}
 class.contact input[type="text"],
 class.contact input[type="email"],
 class.contact textarea {
