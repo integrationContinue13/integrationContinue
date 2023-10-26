@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Ma Boutique en Ligne</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS pour la mise en page -->
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Ma Boutique en Ligne</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="connexion.html">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-form">
+            <h2>Connexion</h2>
+            <form action="votre_script_de_connexion.php" method="post">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Se connecter</button>
+            </form>
+            <p><a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ma Boutique en Ligne</p>
+    </footer>
+</body>
+</html>
