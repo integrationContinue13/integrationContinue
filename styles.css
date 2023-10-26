@@ -64,52 +64,7 @@ dd {
     margin-bottom: 20px;
 }
 
-section.contact {
-    margin-top: 10px;
-    padding: 10px; /* Réduire le rembourrage */
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 96%; /* Réduire la largeur */
-    margin: 0; /* Centrer horizontalement */
-}
 
-section.contact h2 {
-    font-size: 20px; /* Réduire la taille du titre */
-}
-
-section.contact form {
-    margin-top: 10px;
-}
-
-section.contact label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-section.contact input[type="text"],
-section.contact input[type="email"],
-section.contact textarea {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-section.contact button {
-    background-color: #0077b6;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-section.contact button:hover {
-    background-color: #005686;
-}
 
 footer {
     background-color: #333;
