@@ -64,22 +64,105 @@ dd {
     margin-bottom: 20px;
 }
 
-section.contact {
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section.faq {
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+dl {
+    list-style: none;
+}
+
+dt {
+    font-weight: bold;
     margin-top: 10px;
-    padding: 10px; /* Réduire le rembourrage */
+}
+
+dd {
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
+section.cart {
+    margin-top: 20px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 96%; /* Réduire la largeur */
-    margin: 0; /* Centrer horizontalement */
+}
+
+section.cart h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td:first-child {
+    font-weight: bold;
+}
+
+p {
+    font-size: 18px;
+}
+
+button {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005686;
+}
+
+section.contact {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section.contact h2 {
-    font-size: 20px; /* Réduire la taille du titre */
+    font-size: 24px;
 }
 
 section.contact form {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 section.contact label {
@@ -88,10 +171,14 @@ section.contact label {
     margin-bottom: 5px;
 }
 
+section.contact label[for="message"] {
+    clear: both; /* Force le passage à la ligne */
+}
+
 section.contact input[type="text"],
 section.contact input[type="email"],
 section.contact textarea {
-    width: 95%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -112,6 +199,10 @@ section.contact button:hover {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: #333;
     color: #fff;
     text-align: center;
