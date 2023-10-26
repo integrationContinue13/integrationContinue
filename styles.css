@@ -161,6 +161,25 @@ section.contact button:hover {
     background-color: #005686;
 }
 
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 images par ligne */
+    grid-gap: 10px; /* Espacement entre les images */
+    max-width: 800px; /* Largeur maximale de la grille */
+    margin: 20px auto;
+}
+
+.image-item {
+    text-align: center;
+}
+
+.image-item img {
+    max-width: 100%; /* Empêche les images de dépasser la largeur de leur conteneur */
+    height: auto; /* Ajuste la hauteur pour préserver les proportions */
+    width: 100%; /* Images à largeur maximale (changez cette valeur pour ajuster la largeur) */
+    max-height: none; /* Permet à l'image de dépasser la hauteur du conteneur */
+}
+
 footer {
     position: fixed;
     bottom: 0;
