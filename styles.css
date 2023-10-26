@@ -64,6 +64,7 @@ dd {
     margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
 main {
     max-width: 800px;
     margin: 20px auto;
@@ -196,6 +197,23 @@ section.contact button {
 
 section.contact button:hover {
     background-color: #005686;
+=======
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 images par ligne */
+    grid-gap: 10px; /* Espacement entre les images */
+    max-width: 600px; /* Largeur maximale de la grille */
+    margin: 20px auto;
+}
+
+.image-item {
+    text-align: center;
+}
+
+.image-item img {
+    max-width: 100%; /* Empêche les images de dépasser la largeur de leur conteneur */
+    height: auto; /* Ajuste la hauteur pour préserver les proportions */
+>>>>>>> 0620d84799bea02e42b33b6d8841ba0af002a990
 }
 
 footer {
