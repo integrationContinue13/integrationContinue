@@ -36,7 +36,7 @@
                   <!-- Insérez ici les lignes du panier avec les produits, prix, quantités, totaux et boutons de suppression -->
               </tbody>
           </table>
-          <p id="totalPanier">Total du Panier : $0.00</p>
+          <p id="totalPanier">Total du Panier : €0.00</p>
           <button id="checkoutBtn">Passer à la caisse</button>
       </section>
     </main>
@@ -102,196 +102,171 @@
       <p>Ceci est la description du produit 3. Il est idéal pour vous.</p>
     </div>
     <div class="product-price">
-      $24.99
+      € 24.99
     </div>
+    <button class="ajouterAuPanierBtn">Ajouter au panier</button>
   </div>
 
   <div class="product-card">
-    <img class="product-image" src="images/caillouxfaitlafete.jpeg" alt="Product 3">
+    <img class="product-image" src="images/caillouxfaitlafete.jpeg" alt="Product 4">
     <div class="product-description">
-      <h2>Produit 3</h2>
+      <h2>Produit 4</h2>
       <p>Ceci est la description du produit 3. Il est idéal pour vous.</p>
     </div>
     <div class="product-price">
-      $24.99
+      € 25
     </div>
+    <button class="ajouterAuPanierBtn">Ajouter au panier</button>
   </div>
 
   <div class="product-card">
-    <img class="product-image" src="images/caillouxmalade.jpeg" alt="Product 3">
+    <img class="product-image" src="images/caillouxmalade.jpeg" alt="Product 5">
     <div class="product-description">
-      <h2>Produit 3</h2>
+      <h2>Produit 5</h2>
       <p>Ceci est la description du produit 3. Il est idéal pour vous.</p>
     </div>
     <div class="product-price">
-      $24.99
+      € 99
     </div>
+    <button class="ajouterAuPanierBtn">Ajouter au panier</button>
   </div>
 
   <div class="product-card">
-    <img class="product-image" src="images/caillouxsousdrogue.jpeg" alt="Product 3">
+    <img class="product-image" src="images/caillouxsousdrogue.jpeg" alt="Product 6">
     <div class="product-description">
-      <h2>Produit 3</h2>
+      <h2>Produit 6</h2>
       <p>Ceci est la description du produit 3. Il est idéal pour vous.</p>
     </div>
     <div class="product-price">
-      $24.99
+      € 55
     </div>
+    <button class="ajouterAuPanierBtn">Ajouter au panier</button>
   </div>
-
-  <div class="product-card">
-    <img class="product-image" src="product3.jpg" alt="Product 3">
-    <div class="product-description">
-      <h2>Produit 3</h2>
-      <p>Ceci est la description du produit 3. Il est idéal pour vous.</p>
-    </div>
-    <div class="product-price">
-      $24.99
-    </div>
-  </div>
-
-  <div class="product-card">
-    <img class="product-image" src="product3.jpg" alt="Product 3">
-    <div class="product-description">
-      <h2>Produit 3</h2>
-      <p>Ceci est la description du produit 3. Il est idéal pour vous.</p>
-    </div>
-    <div class="product-price">
-      $24.99
-    </div>
-  </div>
-</body>
-</html>
-
 <footer>
-    <p>&copy; 2023 Ma Boutique en Ligne</p>
+  <p>&copy; 2023 Caillou Corp</p>
 </footer>
-</body>
-</html>
-    <footer>
-        <p>&copy; 2023 Ma Boutique en Ligne</p>
-    </footer>
+  <script>
+    var checkoutBtn = document.getElementById("checkoutBtn");
+    var panierBody = document.getElementById("panierBody");
+    var totalPanierElement = document.getElementById("totalPanier");
 
-    <script>
-      var checkoutBtn = document.getElementById("checkoutBtn");
-      var panierBody = document.getElementById("panierBody");
-      var totalPanierElement = document.getElementById("totalPanier");
-  
-      // Sélectionne tous les boutons "Ajouter au panier"
-      var ajouterAuPanierBtns = document.querySelectorAll(".ajouterAuPanierBtn");
-  
-      ajouterAuPanierBtns.forEach(function(btn) {
-          btn.addEventListener("click", function() {
-              // Récupère les informations du produit à partir du parent du bouton
-              var produitCard = btn.closest(".product-card");
-              var produitNom = produitCard.querySelector(".product-description h2").textContent;
-              var produitPrix = parseFloat(produitCard.querySelector(".product-price").textContent.replace("€", "").trim());
-  
-              // Simule l'ajout du produit
-              var produit = {
-                  nom: produitNom,
-                  prix: produitPrix,
-                  quantite: 1
-              };
-  
-              // Récupère le contenu actuel du panier depuis le localStorage
-              var panierActuel = localStorage.getItem("panier");
-  
-              // Vérifie s'il y a déjà des produits dans le panier
-              var panier = panierActuel ? JSON.parse(panierActuel) : [];
-  
-              // Ajoute le nouveau produit au panier
-              panier.push(produit);
-  
-              // Convertit le panier en chaîne JSON
-              var panierJSON = JSON.stringify(panier);
-  
-              // Stocke le panier dans le localStorage avec la clé "panier"
-              localStorage.setItem("panier", panierJSON);
-  
-              // Rafraîchit l'affichage du panier
-              afficherPanier();
-          });
-      });
-  
-      checkoutBtn.addEventListener("click", function() {
-          // Ajoute ici la logique pour passer à la caisse (si nécessaire)
-          alert("Passer à la caisse !");
-      });
-  
-      // Fonction pour afficher le panier
-      function afficherPanier() {
-          // Récupère le contenu actuel du panier depuis le localStorage
-          var panierActuel = localStorage.getItem("panier");
-  
-          // Efface le contenu actuel du panier
-          panierBody.innerHTML = "";
-  
-          if (panierActuel) {
-              var panier = JSON.parse(panierActuel);
-  
-              // Parcours tous les produits dans le panier
-              panier.forEach(function(produit) {
-                  var newRow = panierBody.insertRow();
-                  var cellProduit = newRow.insertCell(0);
-                  var cellPrix = newRow.insertCell(1);
-                  var cellQuantite = newRow.insertCell(2);
-                  var cellTotal = newRow.insertCell(3);
-                  var cellSupprimer = newRow.insertCell(4);
-  
-                  cellProduit.textContent = produit.nom;
-                  cellPrix.textContent = produit.prix;
-                  cellQuantite.textContent = produit.quantite;
-                  cellTotal.textContent = produit.prix * produit.quantite;
-  
-                  // Ajoute un bouton de suppression pour chaque produit
-                  var btnSupprimer = document.createElement("button");
-                  btnSupprimer.textContent = "Supprimer";
-                  btnSupprimer.addEventListener("click", function() {
-                      // Appelle une fonction pour supprimer le produit du panier
-                      supprimerProduit(produit);
-                  });
-                  cellSupprimer.appendChild(btnSupprimer);
-              });
-  
-              // Calcul du total du panier
-              var totalPanier = panier.reduce(function(acc, produit) {
-                  return acc + produit.prix * produit.quantite;
-              }, 0);
-  
-              // Affiche le total du panier
-              totalPanierElement.textContent = "Total du Panier : $" + totalPanier.toFixed(2);
-          } else {
-              totalPanierElement.textContent = "Total du Panier : $0.00";
-          }
-      }
-  
-      // Fonction pour supprimer un produit du panier
-      function supprimerProduit(produit) {
-          // Récupère le contenu actuel du panier depuis le localStorage
-          var panierActuel = localStorage.getItem("panier");
-  
-          if (panierActuel) {
-              var panier = JSON.parse(panierActuel);
-  
-              // Filtre les produits pour exclure celui que l'on veut supprimer
-              var nouveauPanier = panier.filter(function(p) {
-                  return p.nom !== produit.nom;
-              });
-  
-              // Convertit le nouveau panier en chaîne JSON
-              var nouveauPanierJSON = JSON.stringify(nouveauPanier);
-  
-              // Stocke le nouveau panier dans le localStorage
-              localStorage.setItem("panier", nouveauPanierJSON);
-  
-              // Rafraîchit l'affichage du panier
-              afficherPanier();
-          }
-      }
-  
-      // Appelle la fonction pour afficher le panier au chargement de la page
-      afficherPanier();
-  </script>
+    // Sélectionne tous les boutons "Ajouter au panier"
+    var ajouterAuPanierBtns = document.querySelectorAll(".ajouterAuPanierBtn");
+
+    ajouterAuPanierBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            // Récupère les informations du produit à partir du parent du bouton
+            var produitCard = btn.closest(".product-card");
+            var produitNom = produitCard.querySelector(".product-description h2").textContent;
+            var produitPrix = parseFloat(produitCard.querySelector(".product-price").textContent.replace("€", "").trim());
+
+            // Simule l'ajout du produit
+            var produit = {
+                nom: produitNom,
+                prix: produitPrix,
+                quantite: 1
+            };
+
+            // Récupère le contenu actuel du panier depuis le localStorage
+            var panierActuel = localStorage.getItem("panier");
+
+            // Vérifie s'il y a déjà des produits dans le panier
+            var panier = panierActuel ? JSON.parse(panierActuel) : [];
+
+            // Ajoute le nouveau produit au panier
+            panier.push(produit);
+
+            // Convertit le panier en chaîne JSON
+            var panierJSON = JSON.stringify(panier);
+
+            // Stocke le panier dans le localStorage avec la clé "panier"
+            localStorage.setItem("panier", panierJSON);
+
+            // Rafraîchit l'affichage du panier
+            afficherPanier();
+        });
+    });
+
+    checkoutBtn.addEventListener("click", function() {
+        // Ajoute ici la logique pour passer à la caisse (si nécessaire)
+        alert("Passer à la caisse !");
+    });
+
+    // Fonction pour afficher le panier
+    function afficherPanier() {
+        // Récupère le contenu actuel du panier depuis le localStorage
+        var panierActuel = localStorage.getItem("panier");
+
+        // Efface le contenu actuel du panier
+        panierBody.innerHTML = "";
+
+        if (panierActuel) {
+            var panier = JSON.parse(panierActuel);
+
+            // Parcours tous les produits dans le panier
+            panier.forEach(function(produit) {
+                var newRow = panierBody.insertRow();
+                var cellProduit = newRow.insertCell(0);
+                var cellPrix = newRow.insertCell(1);
+                var cellQuantite = newRow.insertCell(2);
+                var cellTotal = newRow.insertCell(3);
+                var cellSupprimer = newRow.insertCell(4);
+
+                cellProduit.textContent = produit.nom;
+                cellPrix.textContent = produit.prix;
+                cellQuantite.textContent = produit.quantite;
+                cellTotal.textContent = produit.prix * produit.quantite;
+
+                // Ajoute un bouton de suppression pour chaque produit
+                var btnSupprimer = document.createElement("button");
+                btnSupprimer.textContent = "Supprimer";
+                btnSupprimer.addEventListener("click", function() {
+                    // Appelle une fonction pour supprimer le produit du panier
+                    supprimerProduit(produit);
+                });
+                cellSupprimer.appendChild(btnSupprimer);
+            });
+
+            // Calcul du total du panier
+            var totalPanier = panier.reduce(function(acc, produit) {
+                return acc + produit.prix * produit.quantite;
+            }, 0);
+
+            // Affiche le total du panier
+            totalPanierElement.textContent = "Total du Panier : €" + totalPanier.toFixed(2);
+        } else {
+            totalPanierElement.textContent = "Total du Panier : €0.00";
+        }
+    }
+
+    // Fonction pour supprimer un produit du panier
+    function supprimerProduit(produit) {
+        // Récupère le contenu actuel du panier depuis le localStorage
+        var panierActuel = localStorage.getItem("panier");
+
+        if (panierActuel) {
+            var panier = JSON.parse(panierActuel);
+
+            // Filtre les produits pour exclure celui que l'on veut supprimer
+            var nouveauPanier = panier.filter(function(p) {
+                return p.nom !== produit.nom;
+            });
+
+            // Convertit le nouveau panier en chaîne JSON
+            var nouveauPanierJSON = JSON.stringify(nouveauPanier);
+
+            // Stocke le nouveau panier dans le localStorage
+            localStorage.setItem("panier", nouveauPanierJSON);
+
+            // Rafraîchit l'affichage du panier
+            afficherPanier();
+        }
+    }
+
+    // Appelle la fonction pour afficher le panier au chargement de la page
+    afficherPanier();
+</script>
 </body>
 </html>
+
+
