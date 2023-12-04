@@ -71,17 +71,17 @@
   </style>
 </head>
 <body>
-  <div class="product-card">
+  <div class="product-card" id="produit1">
     <img class="product-image" src="images/caillouxauCAC40.jpeg" alt="Product 1">
     <div class="product-description">
-      <h2>Caillou CAC40</h2>
-      <p>Caillou a investi en crypto ! Il va vous aidez !</p>
+        <h2>Caillou CAC40</h2>
+        <p>Caillou a investi en crypto ! Il va vous aider !</p>
     </div>
     <div class="product-price">
-      € 40
+        € 40
     </div>
-    <button id="ajouterProduitBtn">Ajouter au panier</button>
-  </div>
+    <button class="ajouterAuPanierBtn">Ajouter au panier</button>
+</div>
 
   <div class="product-card">
     <img class="product-image" src="images/caillouxcontent.jpeg" alt="Product 2">
@@ -92,6 +92,7 @@
     <div class="product-price">
       € 289.99
     </div>
+    <button class="ajouterAuPanierBtn">Ajouter au panier</button>
   </div>
 
   <div class="product-card">
@@ -172,36 +173,45 @@
     </footer>
 
     <script>
-      var ajouterProduitBtn = document.getElementById("ajouterProduitBtn");
       var checkoutBtn = document.getElementById("checkoutBtn");
       var panierBody = document.getElementById("panierBody");
       var totalPanierElement = document.getElementById("totalPanier");
   
-      ajouterProduitBtn.addEventListener("click", function() {
-          // Simulons l'ajout d'un produit
-          var produit = {
-              nom: "Produit ajouté",
-              prix: 9.99,
-              quantite: 1
-          };
+      // Sélectionne tous les boutons "Ajouter au panier"
+      var ajouterAuPanierBtns = document.querySelectorAll(".ajouterAuPanierBtn");
   
-          // Récupère le contenu actuel du panier depuis le localStorage
-          var panierActuel = localStorage.getItem("panier");
+      ajouterAuPanierBtns.forEach(function(btn) {
+          btn.addEventListener("click", function() {
+              // Récupère les informations du produit à partir du parent du bouton
+              var produitCard = btn.closest(".product-card");
+              var produitNom = produitCard.querySelector(".product-description h2").textContent;
+              var produitPrix = parseFloat(produitCard.querySelector(".product-price").textContent.replace("€", "").trim());
   
-          // Vérifie s'il y a déjà des produits dans le panier
-          var panier = panierActuel ? JSON.parse(panierActuel) : [];
+              // Simule l'ajout du produit
+              var produit = {
+                  nom: produitNom,
+                  prix: produitPrix,
+                  quantite: 1
+              };
   
-          // Ajoute le nouveau produit au panier
-          panier.push(produit);
+              // Récupère le contenu actuel du panier depuis le localStorage
+              var panierActuel = localStorage.getItem("panier");
   
-          // Convertit le panier en chaîne JSON
-          var panierJSON = JSON.stringify(panier);
+              // Vérifie s'il y a déjà des produits dans le panier
+              var panier = panierActuel ? JSON.parse(panierActuel) : [];
   
-          // Stocke le panier dans le localStorage avec la clé "panier"
-          localStorage.setItem("panier", panierJSON);
+              // Ajoute le nouveau produit au panier
+              panier.push(produit);
   
-          // Rafraîchit l'affichage du panier
-          afficherPanier();
+              // Convertit le panier en chaîne JSON
+              var panierJSON = JSON.stringify(panier);
+  
+              // Stocke le panier dans le localStorage avec la clé "panier"
+              localStorage.setItem("panier", panierJSON);
+  
+              // Rafraîchit l'affichage du panier
+              afficherPanier();
+          });
       });
   
       checkoutBtn.addEventListener("click", function() {
