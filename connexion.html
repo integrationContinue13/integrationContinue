@@ -21,7 +21,7 @@
     <main>
         <section class="login-form">
             <h2>Connexion</h2>
-            <form action="votre_script_de_connexion.php" method="post">
+            <form onsubmit="return redirectUser();" method="post">
                 <label for="username">Nom d'utilisateur</label>
                 <input type="text" id="username" name="username" required>
 
@@ -37,5 +37,23 @@
     <footer>
         <p>&copy; 2023 Ma Boutique en Ligne</p>
     </footer>
+
+    <script>
+        function redirectUser() {
+            // Simulation de la vérification des informations d'identification
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "nom" && password === "password") {
+                // Redirigez l'utilisateur vers la page utilisateur.html
+                window.location.href = "utilisateur.html";
+                return false; // Empêchez le formulaire de soumettre les données
+            } else {
+                // Gérez le cas où les informations d'identification sont incorrectes
+                alert("Identifiants incorrects. Veuillez réessayer.");
+                return false; // Empêchez le formulaire de soumettre les données
+            }
+        }
+    </script>
 </body>
 </html>
