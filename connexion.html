@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Ma Boutique en Ligne</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS pour la mise en page -->
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Ma Boutique de Caillou</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="connexion.html">Connexion</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-form">
+            <h2>Connexion</h2>
+            <form onsubmit="return redirectUser();" method="post">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Se connecter</button>
+            </form>
+            <p><a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ma Boutique en Ligne</p>
+    </footer>
+
+    <script>
+        function redirectUser() {
+            // Simulation de la vérification des informations d'identification
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "nom" && password === "password") {
+                // Redirigez l'utilisateur vers la page utilisateur.html
+                window.location.href = "utilisateur.html";
+                return false; // Empêchez le formulaire de soumettre les données
+            } else {
+                // Gérez le cas où les informations d'identification sont incorrectes
+                alert("Identifiants incorrects. Veuillez réessayer.");
+                return false; // Empêchez le formulaire de soumettre les données
+            }
+        }
+    </script>
+</body>
+</html>
