@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Utilisateur - Ma Boutique en Ligne</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS pour la mise en page -->
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Ma Boutique de Caillou</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="connexion.html">Connexion</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="user-details">
+            <h2>Adresse de livraison</h2>
+            <form id="addressForm">
+                <label for="addressInput">Entrez votre adresse :</label>
+                <input type="text" id="addressInput" name="address" required>
+                <button type="button" onclick="addAddress()">Ajouter</button>
+            </form>
+
+            <div id="addressList">
+                <!-- L'adresse saisie s'affichera ici -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ma Boutique en Ligne</p>
+    </footer>
+
+    <script>
+        function addAddress() {
+            var addressInput = document.getElementById("addressInput").value;
+    
+            // Vérifiez si l'adresse n'est pas vide
+            if (addressInput.trim() !== "") {
+                var addressList = document.getElementById("addressList");
+    
+                // Créez un élément de paragraphe pour afficher l'adresse
+                var addressParagraph = document.createElement("p");
+                addressParagraph.textContent = addressInput;
+    
+                // Créez un bouton pour supprimer l'adresse
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Supprimer";
+                deleteButton.onclick = function() {
+                    // Appelle la fonction de suppression avec le paragraphe associé
+                    deleteAddress(addressParagraph);
+                };
+    
+                // Ajoutez le paragraphe et le bouton à la liste d'adresses
+                addressList.appendChild(addressParagraph);
+                addressList.appendChild(deleteButton);
+    
+                // Effacez le champ de saisie
+                document.getElementById("addressInput").value = "";
+            }
+        }
+    
+        function deleteAddress(paragraph) {
+            // Supprime le paragraphe et son bouton associé
+            var addressList = document.getElementById("addressList");
+            addressList.removeChild(paragraph.nextSibling); // Supprime le bouton
+            addressList.removeChild(paragraph); // Supprime le paragraphe
+        }
+    </script>
+</body>
+</html>
