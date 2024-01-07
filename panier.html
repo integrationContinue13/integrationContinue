@@ -11,6 +11,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
+                <li><a href="produit.html">Produits</a></li>
                 <li><a href="panier.html">Panier</a></li>
                 <li><a href="connexion.html">Connexion</a></li>
                 <li><a href="faq.html">FAQ</a></li>
@@ -264,6 +265,21 @@
 
     // Appelle la fonction pour afficher le panier au chargement de la page
     afficherPanier();
+    // Vérifie si le panier contient des éléments et affiche une alerte en conséquence
+(function() {
+    // Récupère le contenu actuel du panier depuis le localStorage
+    var panierActuel = localStorage.getItem("panier");
+
+    // Vérifie si le panier contient quelque chose
+    if (panierActuel && JSON.parse(panierActuel).length > 0) {
+        // Affiche une alerte avec le message "Le panier contient des éléments"
+        alert('Le panier contient des éléments');
+    } else {
+        // Affiche une alerte avec le message "Le panier est vide"
+        alert('Le panier est vide');
+    }
+})();
+
 </script>
 </body>
 </html>
