@@ -201,3 +201,21 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+form {
+	display: flex;
+	margin-top: 10px;
+}
+
+input[type="text"] {
+	padding: 5px;
+	width: 200px;
+}
+
+button { 
+	padding: 5px 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
