@@ -1,0 +1,22 @@
+{
+  "name": "integrationcontinue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/integrationContinue13/integrationContinue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/integrationContinue13/integrationContinue/issues"
+  },
+  "homepage": "https://github.com/integrationContinue13/integrationContinue#readme",
+  "dependencies": {
+    "mocha": "^10.2.0"
+  }
+}
